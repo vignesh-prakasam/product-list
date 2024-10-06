@@ -8,7 +8,30 @@ function App() {
 
   const addToCart = (item) => {
     let newCart = [...cart];
-    newCart.push(item);
+    const itemIndex = newCart.findIndex(cartItem => cartItem.name === item.name);
+    if( itemIndex === -1)
+     {
+      item.quantity = 1;
+      newCart.push(item);
+     }   
+    else
+    {
+        newCart[itemIndex].quantity = newCart[itemIndex].quantity + 1;
+    }
+    setCart(newCart);
+  }
+
+  const removeFromCart = (item) => {
+    let newCart = [...cart];
+    const itemIndex = newCart.findIndex(cartItem => cartItem.name === item.name);
+    if( newCart[itemIndex].quantity === 1)
+     {
+      newCart.splice(itemIndex, 1);
+     }   
+    else
+    {
+        newCart[itemIndex].quantity = newCart[itemIndex].quantity - 1;
+    }
     setCart(newCart);
   }
 
@@ -20,7 +43,7 @@ function App() {
           {
             items.map((item, index) => {
               return (
-                <Item key={index} item={item} addToCart={addToCart}/>
+                <Item key={index} item={item} addToCart={addToCart} removeFromCart={removeFromCart} addedToCart={cart.findIndex(cartItem => cartItem.name === item.name)}/>
               )
             })
           }
@@ -32,7 +55,7 @@ function App() {
           {
             cart.map((item, index) => {
               return (
-                <p> {item.name}</p>
+                <p> {item.name} - {item.quantity}</p>
               )
             })
           }
