@@ -3,11 +3,11 @@ function Item(props){
 
     return (
         <div className='w-full h-full grid grid-rows-3 '>
-            <div className={`row-span-2 relative ${ props.addedToCart != -1 ? 'border border-2 border-red rounded-lg' : null }`}>
+            <div className={`row-span-2 relative ${ props.addedToCart !== -1 ? 'border border-2 border-red rounded-lg' : null }`}>
                 <img src={props.item.image.desktop} alt={props.item.name} className="w-full h-full rounded-lg pb-0"/>
                 <div className="flex flex-col justify-center items-center">
                 {
-                    props.addedToCart != -1 ? 
+                    props.addedToCart !== -1 ? 
                     <span className="absolute transform -translate-x-1/5 -translate-y-1/5 h-10 w-2/3 bg-red border border-1 border-rose-400 rounded-3xl text-sm flex items-center justify-between"> 
                         <button className="rounded-full border border-white border-1 w-4 h-4 ml-5" onClick={() => props.reduceFromCart(props.item)}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="pl-1" width="10" height="2" fill="none" viewBox="0 0 10 2"><path fill="#fff" d="M0 .375h10v1.25H0V.375Z"/></svg>

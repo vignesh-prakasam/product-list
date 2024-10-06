@@ -4,7 +4,7 @@ import data from './data.json';
 import emptyCart from './assets/images/illustration-empty-cart.svg';
 function App() {
   
-  const [items, setItems] = useState(data);
+  const [items] = useState(data);
   const [cart, setCart] = useState([]);
 
   const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0).toFixed(2);
