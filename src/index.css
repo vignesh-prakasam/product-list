@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Red Hat';
+  src: url('./assets/fonts/RedHatText-VariableFont_wght.ttf') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Red Hat';
+  src: url('./assets/fonts/RedHatText-VariableFont_wght.ttf') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Red Hat';
+  src: url('./assets/fonts/RedHatText-VariableFont_wght.ttf') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
