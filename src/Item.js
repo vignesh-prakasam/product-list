@@ -3,18 +3,18 @@ function Item(props){
 
     return (
         <div className='w-full h-full grid grid-rows-3 '>
-            <div className="row-span-2 relative">
+            <div className={`row-span-2 relative ${ props.addedToCart != -1 ? 'border border-2 border-red rounded-lg' : null }`}>
                 <img src={props.item.image.desktop} alt={props.item.name} className="w-full h-full rounded-lg pb-0"/>
                 <div className="flex flex-col justify-center items-center">
                 {
                     props.addedToCart != -1 ? 
                     <span className="absolute transform -translate-x-1/5 -translate-y-1/5 h-10 w-2/3 bg-red border border-1 border-rose-400 rounded-3xl text-sm flex items-center justify-between"> 
-                        <button className="rounded-full border border-white border-1 w-4 h-4 ml-5" onClick={() => props.addToCart(props.item)}>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="pl-1" width="10" height="10" fill="none" viewBox="0 0 10 10"><path fill="#fff" d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"/></svg>
+                        <button className="rounded-full border border-white border-1 w-4 h-4 ml-5" onClick={() => props.reduceFromCart(props.item)}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="pl-1" width="10" height="2" fill="none" viewBox="0 0 10 2"><path fill="#fff" d="M0 .375h10v1.25H0V.375Z"/></svg>
                         </button>
                         <span className="text-white text-sm">{props.item.quantity}</span>
-                        <button className="rounded-full border border-white border-1 w-4 h-4 mr-5" onClick={() => props.removeFromCart(props.item)}>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="pl-1" width="10" height="2" fill="none" viewBox="0 0 10 2"><path fill="#fff" d="M0 .375h10v1.25H0V.375Z"/></svg>
+                        <button className="rounded-full border border-white border-1 w-4 h-4 mr-5" onClick={() => props.addToCart(props.item)}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="pl-1" width="10" height="10" fill="none" viewBox="0 0 10 10"><path fill="#fff" d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"/></svg>
                         </button>
                     </span>
                     : 
