@@ -70,22 +70,20 @@ function App() {
 
       <div className="sm:col-span-2 bg-rose-50 ">
         <div className="bg-white m-8 rounded-lg min-h-20 ml-5 mr-5 ">
-          <h1 className="text-left text-lg font-bold text-red mb-10">
-            {" "}
-            Your Cart ({cart.length}){" "}
+          <h1 className="text-left text-lg font-bold text-red mb-5 ml-5">
+            Your Cart ({cart.length})
           </h1>
 
           <table className="mb-5 w-full">
             {cart.map((item, index) => {
               return (
-                <tr className=" mb-5 border border-b-1 border-l-0 border-r-0 border-t-0">
-                  <td>
-                    <p className=" mb-2 text-sm text-rose-900 font-semibold">
-                      {" "}
+                <tr className="border border-b-1 border-l-0 border-r-0 border-t-0">
+                  <td className="px-4 py-2">
+                    <p className=" mb-2 text-sm text-rose-900 font-semibold ">
                       {item.name}
                     </p>
                     <p className="">
-                      <span className="text-red text-sm">{item.quantity}x</span>
+                      <span className="text-red text-sm font-semibold">{item.quantity}x</span>
                       <span className="text-gray-500 text-sm px-5">
                         @ ${item.price.toFixed(2)}
                       </span>
@@ -94,7 +92,7 @@ function App() {
                       </span>
                     </p>
                   </td>
-                  <td>
+                  <td className="px-4 py-2"> 
                     <button
                       className=" w-3 h-3 border border-rose-400  rounded-full"
                       onClick={() => removeFromCart(item)}
@@ -126,7 +124,7 @@ function App() {
             </div>
           ) : (
             <div>
-              <div className="flex flex-row justify-between items-center">
+              <div className="flex flex-row justify-between items-center ml-5 mr-5">
                 <div>
                   <span className="text-sm text-rose-900">Order Total</span>
                 </div>
@@ -136,7 +134,7 @@ function App() {
                   </span>
                 </div>
               </div>
-              <div className="mt-5">
+              <div className="mt-5 mx-5">
                 <p className="bg-rose-100 text-sm p-4 rounded-lg text-center"> 
                   <span className="flex justify-center items-center">
                     <img src={tree} alt="tree" className="mr-2"/>
