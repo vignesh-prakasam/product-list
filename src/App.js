@@ -50,7 +50,7 @@ function App() {
   return (
     <div className="font-red-hat font-400 bg-rose-50 grid sm:grid-cols-5 grid-cols-1 ml-10 mt-10">
       <div className="sm:col-span-3 bg-rose-50">
-        <h1 className=" text-2xl font-bold text-left"> Desserts </h1>
+        <h1 className=" text-2xl font-bold text-left mb-5"> Desserts </h1>
         <div className="grid sm:grid-cols-3 grid-cols-1 gap-4">
           {items.map((item, index) => {
             return (
@@ -69,8 +69,8 @@ function App() {
       </div>
 
       <div className="sm:col-span-2 bg-rose-50 ">
-        <div className="bg-white m-8 rounded-lg min-h-20 ml-5 mr-5 ">
-          <h1 className="text-left text-lg font-bold text-red mb-5 ml-5">
+        <div className="bg-white pt-5 rounded-lg min-h-20 ml-5 mr-5 ">
+          <h1 className="text-left text-lg font-bold text-red mb-2 ml-5">
             Your Cart ({cart.length})
           </h1>
 
