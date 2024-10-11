@@ -161,45 +161,47 @@ function App() {
             We hope you enjoy your food!
           </p>
 
-          <table className="mt-5 mb-5 w-full bg-rose-100 rounded-lg ">
-            {cart.map((item, index) => {
-              return (
-                <tr className="border-b border-gray-200">
-                  <td>
-                  <img src={item.image.thumbnail} alt={item.name} className="rounded-2xl py-3 pl-3 w-30 h-30"/>
-                  </td>
-                  <td className="py-2">
-                    <p className="mb-2 text-sm text-rose-900 font-semibold ">
-                      {item.name}
-                    </p>
-                    <p className="">
-                      <span className="text-red text-sm font-semibold text-left">{item.quantity}x</span>
-                      <span className="text-gray-500 text-sm px-5">
-                        @ ${item.price.toFixed(2)}
-                      </span>
-     
-                    </p>
-                  </td>
-                  <td className="px-4 py-4 text-right"> 
-                  <span className="text-rose-900 text-sm px-5 text-right">
-                        ${(item.price.toFixed(2) * item.quantity).toFixed(2)}
-                  </span>
-                  
-                  </td>
-                </tr>
-              );
-            })}
-            
-            <tr>
-              <td className="px-4 py-4">
-                <p className="text-sm text-rose-500 font-semibold">Order total</p>
-              </td>
-              <td className="px-4 py-4"></td>
-              <td className="px-4 py-4 text-right">
-                <span className="text-rose-900 text-2xl px-5 font-bold">${total}</span>
-              </td>
-            </tr>
-          </table>
+          <div className="sm:max-h-96 max-h-80 overflow-auto">
+            <table className="mt-5 mb-5 w-full bg-rose-100 rounded-lg">
+              {cart.map((item, index) => {
+                return (
+                  <tr className="border-b border-gray-200">
+                    <td>
+                    <img src={item.image.thumbnail} alt={item.name} className="rounded-2xl py-3 pl-3 w-30 h-30"/>
+                    </td>
+                    <td className="py-2">
+                      <p className="mb-2 text-sm text-rose-900 font-semibold ">
+                        {item.name}
+                      </p>
+                      <p className="">
+                        <span className="text-red text-sm font-semibold text-left">{item.quantity}x</span>
+                        <span className="text-gray-500 text-sm px-5">
+                          @ ${item.price.toFixed(2)}
+                        </span>
+       
+                      </p>
+                    </td>
+                    <td className="px-4 py-4 text-right"> 
+                    <span className="text-rose-900 text-sm px-5 text-right">
+                          ${(item.price.toFixed(2) * item.quantity).toFixed(2)}
+                    </span>
+                    
+                    </td>
+                  </tr>
+                );
+              })}
+              
+              <tr>
+                <td className="px-4 py-4">
+                  <p className="text-sm text-rose-500 font-semibold">Order total</p>
+                </td>
+                <td className="px-4 py-4"></td>
+                <td className="px-4 py-4 text-right">
+                  <span className="text-rose-900 text-2xl px-5 font-bold">${total}</span>
+                </td>
+              </tr>
+            </table>
+          </div>
 
           <button
             className="w-full bg-red text-white text-sm font-bold rounded-3xl p-3 my-5"
