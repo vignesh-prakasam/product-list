@@ -97,7 +97,7 @@ function App() {
                   </td>
                   <td className="px-4 py-2"> 
                     <button
-                      className=" w-3 h-3 border border-rose-400  rounded-full"
+                      className=" w-3 h-3 border border-rose-400  rounded-full hover:border-rose-900 group"
                       onClick={() => removeFromCart(item)}
                     >
                       <svg
@@ -108,6 +108,7 @@ function App() {
                         viewBox="0 0 10 10"
                       >
                         <path
+                          className="group-hover:fill-rose-900"
                           fill="#CAAFA7"
                           d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
                         />
@@ -145,7 +146,7 @@ function App() {
                   </span>
                    
                 </p>
-                <button className="w-full bg-red text-white text-sm font-bold rounded-3xl p-3 my-5" onClick={() => setOpen(true)}>
+                <button className="w-full bg-red text-white text-sm font-bold rounded-3xl p-3 my-5 hover:bg-red-800" onClick={() => setOpen(true)}>
                   Confirm Order
                 </button>   
               </div>
@@ -156,7 +157,7 @@ function App() {
       <Modal open={open} Onclose={() => setOpen(false)}>
         <div className="m-5">
           <img src={orderConfirmed} alt="Order Confirmed" className="my-auto mb-4"/>
-          <h1 className="text-2xl font-bold text-left mb-5 text-left">Order Confirmed</h1>
+          <h1 className="text-2xl font-bold mb-5 text-left">Order Confirmed</h1>
           <p className="text-sm text-rose-500 text-left">
             We hope you enjoy your food!
           </p>
@@ -204,7 +205,7 @@ function App() {
           </div>
 
           <button
-            className="w-full bg-red text-white text-sm font-bold rounded-3xl p-3 my-5"
+            className="w-full bg-red text-white text-sm font-bold rounded-3xl p-3 my-5 hover:bg-red-800"
             onClick={() => {setOpen(false); setCart([])}}
           >
             Start new order
