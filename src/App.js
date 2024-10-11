@@ -3,9 +3,12 @@ import React, { useState } from "react";
 import data from "./data.json";
 import emptyCart from "./assets/images/illustration-empty-cart.svg";
 import tree from "./assets/images/icon-carbon-neutral.svg";
+import orderConfirmed from "./assets/images/icon-order-confirmed.svg"
+import Modal from "./Modal";
 function App() {
   const [items] = useState(data);
   const [cart, setCart] = useState([]);
+  const [open, setOpen] = useState(false);
 
   const total = cart
     .reduce((acc, item) => acc + item.price * item.quantity, 0)
@@ -50,7 +53,7 @@ function App() {
   return (
     <div className="font-red-hat font-400 bg-rose-50 grid sm:grid-cols-5 grid-cols-1 ml-10 mt-10">
       <div className="sm:col-span-3 bg-rose-50">
-        <h1 className=" text-2xl font-bold text-left mb-5"> Desserts </h1>
+        <h1 className="text-2xl font-bold text-left mb-5"> Desserts </h1>
         <div className="grid sm:grid-cols-3 grid-cols-1 gap-4">
           {items.map((item, index) => {
             return (
@@ -142,14 +145,70 @@ function App() {
                   </span>
                    
                 </p>
-                <button className="w-full bg-red text-white text-sm font-bold rounded-3xl p-3 my-5">
+                <button className="w-full bg-red text-white text-sm font-bold rounded-3xl p-3 my-5" onClick={() => setOpen(true)}>
                   Confirm Order
-                </button>  
+                </button>   
               </div>
             </div>
           )}
         </div>
       </div>
+      <Modal open={open} Onclose={() => setOpen(false)}>
+        <div className="m-5">
+          <img src={orderConfirmed} alt="Order Confirmed" className="my-auto mb-4"/>
+          <h1 className="text-2xl font-bold text-left mb-5 text-left">Order Confirmed</h1>
+          <p className="text-sm text-rose-500 text-left">
+            We hope you enjoy your food!
+          </p>
+
+          <table className="mt-5 mb-5 w-full bg-rose-100 rounded-lg ">
+            {cart.map((item, index) => {
+              return (
+                <tr className="border-b border-gray-200">
+                  <td>
+                  <img src={item.image.thumbnail} alt={item.name} className="rounded-2xl py-3 pl-3 w-30 h-30"/>
+                  </td>
+                  <td className="py-2">
+                    <p className="mb-2 text-sm text-rose-900 font-semibold ">
+                      {item.name}
+                    </p>
+                    <p className="">
+                      <span className="text-red text-sm font-semibold text-left">{item.quantity}x</span>
+                      <span className="text-gray-500 text-sm px-5">
+                        @ ${item.price.toFixed(2)}
+                      </span>
+     
+                    </p>
+                  </td>
+                  <td className="px-4 py-4 text-right"> 
+                  <span className="text-rose-900 text-sm px-5 text-right">
+                        ${(item.price.toFixed(2) * item.quantity).toFixed(2)}
+                  </span>
+                  
+                  </td>
+                </tr>
+              );
+            })}
+            
+            <tr>
+              <td className="px-4 py-4">
+                <p className="text-sm text-rose-500 font-semibold">Order total</p>
+              </td>
+              <td className="px-4 py-4"></td>
+              <td className="px-4 py-4 text-right">
+                <span className="text-rose-900 text-2xl px-5 font-bold">${total}</span>
+              </td>
+            </tr>
+          </table>
+
+          <button
+            className="w-full bg-red text-white text-sm font-bold rounded-3xl p-3 my-5"
+            onClick={() => {setOpen(false); setCart([])}}
+          >
+            Start new order
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 }
