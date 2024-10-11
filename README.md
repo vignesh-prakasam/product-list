@@ -30,12 +30,13 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+<img width="1484" alt="image" src="https://github.com/user-attachments/assets/1b142aa4-6093-4cb8-85ac-3ada1486700f">
+
 
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/product-list-using-react-and-tailwind-s4jynJDeal](https://www.frontendmentor.io/solutions/product-list-using-react-and-tailwind-s4jynJDeal)
 - Live Site URL: [https://melodious-beijinho-65b905.netlify.app](https://melodious-beijinho-65b905.netlify.app)
 
 ## My process
